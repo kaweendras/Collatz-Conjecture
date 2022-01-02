@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collatz Conjecture</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://use.fontawesome.com/687d691b33.js"></script>
+</head>
+<body>
+    <div class="heading1">
+        Collatz Conjecture
+    </div>
+    <div class="wrap">
+        <div class="search">
+           <input type="text" class="searchTerm" id='number' placeholder="Input a Number">
+           <button type="submit" onclick="collatz()" class="searchButton"><i class="fa fa-search"></i></button>
+             
+          </button>
+        </div>
+     </div>
+
+    
+    <div class="count" >
+         <div id="count"></div>
+    </div>
+
+    <div class="steps" id="steps" >
+        
+    </div>
+    
+    
+</body>
+
+<script>
+    function collatz(){
+    var input = document.getElementById('number').value;
+    var outputList =[];
+    var counter = 0;
+    document.getElementById('steps').style.visibility="inherit";
+
+    while(input != 1){
+        if(input % 2 == 0){
+            input = input/2;
+        }else{
+            input = (input * 3)+1;
+        }
+        outputList[counter] = input;
+        console.log(input);
+        counter++;
+
+        for(var i =0; i<outputList.length;i++){
+            
+            document.getElementById('steps').innerHTML += (outputList[i]+', ');
+        }
+    }
+    console.log('Number of Steps '+ counter);
+    document.getElementById('count').innerHTML = 'Counter : '+counter;
+    }
+
+</script>
+</html>
