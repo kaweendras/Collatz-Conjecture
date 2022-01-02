@@ -52,7 +52,8 @@
         outputList[counter] = input;
         console.log(input);
         counter++;
-
+        document.getElementById('steps').innerHTML = "";
+        
         for(var i =0; i<outputList.length;i++){
             
             document.getElementById('steps').innerHTML += (outputList[i]+', ');
