@@ -78,3 +78,20 @@ body{
     color:#00B4CC ;
     font-size:50px;
   }
+
+  footer {
+      width: 100%;
+    background: #f2f2f2;
+    color: #23d1dd;
+    bottom: 0%;
+    position: fixed;
+}
+
+footer p {
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer img {
+    width: 44px;
+}
