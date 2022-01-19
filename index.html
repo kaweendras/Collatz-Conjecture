@@ -42,8 +42,8 @@
     var outputList =[];
     var counter = 0;
     document.getElementById('steps').style.visibility="inherit";
-
-    while(input != 1){
+    if(input > 0){
+        while(input != 1){
         if(input % 2 == 0){
             input = input/2;
         }else{
@@ -62,6 +62,8 @@
     console.log('Number of Steps '+ counter);
     document.getElementById('count').innerHTML = 'Counter : '+counter;
     }
+    }
+    
 
 </script>
 </html>
