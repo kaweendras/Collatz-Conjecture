@@ -10,8 +10,13 @@
     <script src="https://use.fontawesome.com/687d691b33.js"></script>
 </head>
 <body>
+    <div class="banner">
+        <div id="particle-canvas"></div>
+      </div>
+
     <div class="heading1">
-        Collatz Conjecture
+        
+        Collatz Conjecture</br> Calculator
     </div>
     <div class="wrap">
         <div class="search">
@@ -42,7 +47,20 @@
     var outputList =[];
     var counter = 0;
     document.getElementById('steps').style.visibility="inherit";
-    if(input > 0){
+    if(input == 0 || input == 1){
+        //hide the steps
+        document.getElementById('steps').style.visibility="hidden";
+        
+       if(input==0){
+        alert("Try something larger");
+       }else if(input==1){
+        alert("Really? 1?");
+       }
+    }else{
+            if(input > 0){
+                if(input==2){
+                alert("I have seen new borns who can come up with larger numbers than you");
+        }
         while(input != 1){
         if(input % 2 == 0){
             input = input/2;
@@ -63,7 +81,11 @@
     document.getElementById('count').innerHTML = 'Counter : '+counter;
     }
     }
+    }
+
+    
     
 
 </script>
+<script src="particles.js"></script>
 </html>
