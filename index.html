@@ -5,87 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collatz Conjecture</title>
-
     <link rel="stylesheet" href="styles.css">
     <script src="https://use.fontawesome.com/687d691b33.js"></script>
 </head>
 <body>
     <div class="banner">
         <div id="particle-canvas"></div>
-      </div>
+    </div>
 
     <div class="heading1">
-        
-        Collatz Conjecture</br> Calculator
+        Collatz Conjecture Calculator
     </div>
     <div class="wrap">
         <div class="search">
-           <input type="text" class="searchTerm" id='number' placeholder="Input a Number">
-           <button type="submit" onclick="collatz()" class="searchButton"><i class="fa fa-search"></i></button>
-             
-          </button>
+            <input type="text" class="searchTerm" id='number' placeholder="Input a Number">
+            <button type="submit" onclick="collatz()" class="searchButton"><i class="fa fa-search"></i></button>
         </div>
-     </div>
-
-    
-    <div class="count" >
-         <div id="count"></div>
     </div>
 
-    <div class="steps" id="steps" >
-        
+    <div class="count">
+        <div id="count"></div>
     </div>
-    
+
+    <div class="steps" id="steps"></div>
+
     <footer>
         <p>Made with ❤️ by <a href="https://github.com/kaweendras" class="">KaweendraS</a></p>
     </footer>
+
+    <script>
+        function collatz() {
+            var input = document.getElementById('number').value;
+            var outputList = [];
+            var counter = 0;
+            document.getElementById('steps').style.visibility = "inherit";
+            if (input == 0 || input == 1) {
+                document.getElementById('steps').style.visibility = "hidden";
+                if (input == 0) {
+                    alert("Try something larger");
+                } else if (input == 1) {
+                    alert("Really? 1?");
+                }
+            } else {
+                if (input == 2) {
+                    alert("I have seen newborns who can come up with larger numbers than you");
+                }
+                while (input != 1) {
+                    if (input % 2 == 0) {
+                        input = input / 2;
+                    } else {
+                        input = (input * 3) + 1;
+                    }
+                    outputList[counter] = input;
+                    console.log(input);
+                    counter++;
+                    document.getElementById('steps').innerHTML = "";
+                    for (var i = 0; i < outputList.length; i++) {
+                        document.getElementById('steps').innerHTML += (outputList[i] + ', ');
+                    }
+                }
+                console.log('Number of Steps ' + counter);
+                document.getElementById('count').innerHTML = 'Counter: ' + counter;
+            }
+        }
+    </script>
 </body>
-
-<script>
-    function collatz(){
-    var input = document.getElementById('number').value;
-    var outputList =[];
-    var counter = 0;
-    document.getElementById('steps').style.visibility="inherit";
-    if(input == 0 || input == 1){
-        //hide the steps
-        document.getElementById('steps').style.visibility="hidden";
-        
-       if(input==0){
-        alert("Try something larger");
-       }else if(input==1){
-        alert("Really? 1?");
-       }
-    }else{
-            if(input > 0){
-                if(input==2){
-                alert("I have seen new borns who can come up with larger numbers than you");
-        }
-        while(input != 1){
-        if(input % 2 == 0){
-            input = input/2;
-        }else{
-            input = (input * 3)+1;
-        }
-        outputList[counter] = input;
-        console.log(input);
-        counter++;
-        document.getElementById('steps').innerHTML = "";
-        
-        for(var i =0; i<outputList.length;i++){
-            
-            document.getElementById('steps').innerHTML += (outputList[i]+', ');
-        }
-    }
-    console.log('Number of Steps '+ counter);
-    document.getElementById('count').innerHTML = 'Counter : '+counter;
-    }
-    }
-    }
-
-    
-    
-
-</script>
 <script src="particles.js"></script>
 </html>
